@@ -20,50 +20,63 @@
 
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    id="es.dsie.cordova.plugins.revmob"
+    id="es.dsie.cordova.plugins.openx"
     version="0.0.1">
 
-    <name>RevMob</name>
+    <name>OpenX</name>
     <author>EritiaLabs</author>
-    <description>Cordova RevMob Plugin</description>
+    <description>Cordova OpenX Plugin</description>
     <license>Apache 2.0</license>
-    <keywords>cordova,ads,revmob</keywords>
+    <keywords>cordova,ads,openx</keywords>
     <repo></repo>
     <issue></issue>
 
-    <js-module src="www/revmob.js" name="RevMob">
-        <merges target="window.RevMob" />
+    <js-module src="www/openx.js" name="OpenX">
+        <merges target="window.OpenX" />
     </js-module>
 
     <!-- android -->
     <platform name="android">
         <config-file target="res/xml/config.xml" parent="/*">
-            <feature name="RevMobPlugin">
-              <param name="android-package" value="com.revmob.cordova.RevMobPlugin"/>
+            <feature name="OpenXPlugin">
+              <param name="android-package" value="es.dsie.cordova.plugins.openx.OpenXPlugin"/>
             </feature>
-            
         </config-file>
 
-        <source-file src="src/android/libs/revmob-android-wrapper.jar" target-dir="libs/"/>
-
-        <config-file target="AndroidManifest.xml" parent="/manifest">
-            <uses-permission android:name="android.permission.INTERNET"/>
-        </config-file>
+        <source-file src="src/android/es.dsie.cordova.plugins.openx/OpenX.java" target-dir="src/es/dsie/cordova/plugins/openx/"/>
         
+      
+        <config-file target="AndroidManifest.xml" parent="/manifest">
+            <uses-permission android:name="android.permission.INTERNET" />
+            <uses-permission android:name=" android.permission.ACCESS_NETWORK_STATE" />
+            <uses-permission android:name=" android.permission.ACCESS_FINE_LOCATION" />
+            <uses-permission android:name=" android.permission.ACCESS_WIFI_STATE" />
+            <uses-permission android:name=" android.permission.WRITE_EXTERNAL_STORAGE" />
+        </config-file>
         
         <config-file target="AndroidManifest.xml" parent="/manifest/application">
-             <activity android:name="com.revmob.ads.fullscreen.FullscreenActivity"
-                       android:theme="@android:style/Theme.Translucent"
-                       android:configChanges="keyboardHidden|orientation">
+            <!-- StatusBar Visible 
+            <activity android:name ="com.openx.ad.mobile.sdk.entity.AdBrowser"
+                      android:configChanges ="orientation|screenSize|keyboardHidden"
+                      android:theme ="@android:style/Theme.Translucent.NoTitleBar">
+            </activity>
+            -->
+            <!-- StatusBar Hidden --> 
+             <activity android:name="com.openx.ad.mobile.sdk.entity.AdBrowser"
+                       android:configChanges="orientation|screenSize|keyboardHidden"
+                       android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen">
              </activity>
+             
+             <meta-data android:name ="com.google.android.gms.version"
+                        android:value="4030500" />
+                        
         </config-file>
-        
-        
+
     </platform>
 
     <!-- ios 
     <platform name="ios">
-        <feature name="RevMobPlugin">
+        <feature name="AdController">
             <param name="ios-package" value="LBPhonegapPlugin" />
             <param name="onload" value="true" />
         </feature>
