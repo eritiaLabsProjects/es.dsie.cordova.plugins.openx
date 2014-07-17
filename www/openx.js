@@ -1,44 +1,19 @@
-var RevMob = {};
-  RevMob.TEST_DISABLED = 0;
-RevMob.TEST_WITH_ADS = 1;
-RevMob.TEST_WITHOUT_ADS = 2;
+var OpenX = {};
 
-RevMob.startSession= function(appId,successCallback, errorCallback) {
-    cordova.exec(successCallback, errorCallback, "RevMobPlugin", "startSession", [appId]);
+OpenX.init= function(params,successCallback, errorCallback) {
+    cordova.exec(successCallback, errorCallback, "OpenXPlugin", "init", [params]);
   };
 
-RevMob.showFullscreen = function(successCallback, errorCallback) {
-		cordova.exec(successCallback, errorCallback, "RevMobPlugin", "showFullscreen", []);
+OpenX.showInterstitial = function(params,successCallback, errorCallback) {
+		cordova.exec(successCallback, errorCallback, "OpenXPlugin", "showInterstitial", [params]);
 	};
 
-RevMob.openAdLink = function(successCallback, errorCallback) {
-		cordova.exec(successCallback, errorCallback, "RevMobPlugin", "openAdLink", []);
+OpenX.showBanner = function(params,successCallback, errorCallback) {
+		cordova.exec(successCallback, errorCallback, "OpenXPlugin", "showBanner", [params]);
 	};
 
-RevMob.showPopup = function(successCallback, errorCallback) {
-		cordova.exec(successCallback, errorCallback, "RevMobPlugin", "showPopup", []);
-	}
-
-RevMob.showBanner = function(successCallback, errorCallback) {
-		cordova.exec(successCallback, errorCallback, "RevMobPlugin", "showBanner", []);
+OpenX.hideBanner = function(params,successCallback, errorCallback) {
+		cordova.exec(successCallback, errorCallback, "OpenXPlugin", "hideBanner", [params]);
 	};
 
-RevMob.hideBanner = function(successCallback, errorCallback) {
-		cordova.exec(successCallback, errorCallback, "RevMobPlugin", "hideBanner", []);
-	};
-
-RevMob.setTestingMode = function(testingMode) {
-		cordova.exec(null, null, "RevMobPlugin", "setTestingMode", [testingMode]);
-	};
-
-RevMob.printEnvironmentInformation = function() {
-		cordova.exec(null, null, "RevMobPlugin", "printEnvironmentInformation", []);
-	};
-
-RevMob.setTimeoutInSeconds = function(seconds) {
-		cordova.exec(null, null, "RevMobPlugin", "setTimeoutInSeconds", [seconds]);
-	};
-	
-
-
-module.exports = RevMob;
+module.exports = OpenX;

@@ -43,7 +43,7 @@
             </feature>
         </config-file>
 
-        <source-file src="src/android/es.dsie.cordova.plugins.openx/OpenX.java" target-dir="src/es/dsie/cordova/plugins/openx/"/>
+        <source-file src="src/android/es.dsie.cordova.plugins.openx/OpenXPlugin.java" target-dir="src/es/dsie/cordova/plugins/openx/"/>
         
       
         <config-file target="AndroidManifest.xml" parent="/manifest">
